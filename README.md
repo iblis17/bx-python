@@ -34,7 +34,7 @@ bx lets you store things in memory. It has a few special features:
 
 ## Installation
 
-Just make sure you have Python 2 or 3 and pip installed:
+Just make sure you have Python 2.7.x or 3.4.x and pip installed:
 
 ```bash
 $ pip install bx
