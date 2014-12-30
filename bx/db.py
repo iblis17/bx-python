@@ -12,10 +12,10 @@ class Db():
         if type(debug) is not bool:
             raise TypeError('debug must be True or False')
         else:
-            self.__debug = debug
-            self.__schema = schema
-            self.__data = {}
-            self.__credits = """
+            self.debug = debug
+            self.schema = schema
+            self.data = {}
+            self.credits = """
                               __
                        ___~~~`  `~~__
                  ___~~~              `~_
@@ -25,9 +25,7 @@ class Db():
                 |      ~_ __~~~            |
                 |        |                 |
                 |        |                 |
-                |        |                 |
-                |        |       bx        |
-                ~_       |                 |
+                ~_       |       bx        |
                   ~_     |               __|
                     ~_   |          __~~~
                       ~_ |     __~~~
@@ -35,7 +33,7 @@ class Db():
 
                 (c) 2014 tylucaskelley
             """
-            self.__lock = threading.RLock()
+            self.lock = threading.RLock()
 
     def put(self, key, val, time=None):
         """Put something in the data store, with an optional expiration time."""

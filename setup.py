@@ -22,7 +22,6 @@ config = {
     'packages': [
         'bx'
     ],
-    'scripts': [],
     'classifiers': [
         'Programming Language :: Python',
         'Operating System :: MacOS :: MacOS X',

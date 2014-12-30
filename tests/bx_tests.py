@@ -19,7 +19,20 @@ student_schema = {
 }
 
 item_schema = {
-
+    'title': 'items',
+    'type': 'object',
+    'required': ['name', 'price', 'quantity'],
+    'properties': {
+        'name': {
+            'type': 'string'
+        },
+        'price': {
+            'type': 'number'
+        },
+        'quantity': {
+            'type': 'number'
+        }
+    }
 }
 
 
