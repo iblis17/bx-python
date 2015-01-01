@@ -11,7 +11,7 @@ config = {
     'long_description': open('README.md').read(),
     'author': 'Ty-Lucas Kelley',
     'url': 'https://github.com/tylucaskelley/bx-python',
-    'download_url': 'https://github.com/tylucsakelley/bx-python/tarball/v0.1.0',
+    'download_url': 'https://github.com/tylucaskelley/bx-python/tarball/v0.1.0',
     'author_email': 'tylucaskelley@gmail.com',
     'license': 'MIT',
     'version': '0.1.0',
