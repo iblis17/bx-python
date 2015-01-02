@@ -32,6 +32,7 @@ bx lets you store things in memory. It has a few special features:
 * JSON Schema validation
 * Clean & simple API
 * Badass ASCII art
+* Supports Python 2.7 and 3.4
 
 ## Installation
 

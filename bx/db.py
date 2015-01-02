@@ -54,6 +54,9 @@ class Db():
             """
             self.lock = threading.Lock()
 
+        if debug:
+            print('data store created')
+
     def put(self, key, val, timeout=None):
         """
         Put a value in the data store, with an optional expiration time (in ms).
@@ -82,8 +85,13 @@ class Db():
                 'exp': death
             }
 
+            if self.debug:
+                print('PUT: key = ' + str(key) + ', value = ' + str(value))
+
             if ms and ms > 0:
                 threading.Timer(ms, self.delete, [key]).start()
+                if self.debug:
+                    print('"' + str(key) + '" will die in ' + str(ms) + ' ms')
 
             self.data[key] = item
 
@@ -121,6 +129,9 @@ class Db():
         """
 
         with self.lock:
+            if self.debug:
+                print('GET: key = ' + str(key))
+
             return self.data[key]['value']
 
     def mget(self, *keys):
@@ -152,6 +163,9 @@ class Db():
         """
 
         with self.lock:
+            if self.debug:
+                print('DELETE: key = ' + str(key))
+
             self.data.pop(key)
 
     def mdelete(self, *keys):
@@ -172,6 +186,9 @@ class Db():
         """Empty the data store."""
 
         with self.lock:
+            if self.debug:
+                print('DELETE: all data')
+
             self.data = {}
 
     def all(self):
@@ -183,6 +200,9 @@ class Db():
         """
 
         with self.lock:
+            if self.debug:
+                print('GET: all data')
+
             return {k: v['value'] for k, v in self.data.items()}
 
     def keys(self):
