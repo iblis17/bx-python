@@ -27,6 +27,7 @@ In-memory storage for Python
 
 bx lets you store things in memory. It has a few special features:
 
+* Thread safe
 * Setting a timeout before object is destroyed
 * JSON Schema validation
 * Clean & simple API
