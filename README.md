@@ -42,7 +42,63 @@ Just make sure you have Python 2.7.x or 3.4.x and pip installed:
 $ pip install bx
 ```
 
-## API
+## Usage
 
-The code is pretty simple and well-commented, but here's an overview and example
-usage for each function. For more, feel free to look through the test suite as well.
+The code is pretty simple and well-commented, but here's some example usage. If
+you want more detail, run `pydoc bx.Db` once you've installed it or look through
+the code to get info.
+
+```python
+import bx
+
+student = {
+    'title': 'student',
+    'type': 'object',
+    'required': ['name', 'major', 'gpa'],
+    'properties': {
+        'name': {
+            'type': 'string'
+        },
+        'major': {
+            'type': 'string'
+        },
+        'gpa': {
+            'type': 'number'
+        }
+    }
+}
+
+# The schema argument defaults to None, and there is also an optional
+# debug mode (for console logging) that defaults to False
+db = bx.Db(schema=student)
+
+try:
+    db.put('bad', 'data')
+except bx.db.ValidationError: # same as jsonschema.exceptions.ValidationError
+    print('This does not fit the schema!')
+
+john = {
+    'name': 'John Doe',
+    'major': 'Computer Science',
+    'gpa': 3.6
+}
+
+susan = {
+    'name': 'Susan Jones',
+    'major': 'Physics',
+    'gpa': 3.96
+}
+
+db.put('john', john)
+db.put('susan', susan)
+
+# get average gpa
+print(sum([v['gpa'] for v in db.vals()]) / len(db.vals()))
+
+db.delete('susan')
+
+try:
+    db.delete('bob')
+except KeyError:
+    print('bob is not in the data store!')
+```
