@@ -89,7 +89,10 @@ class Db():
                 print('PUT: key = ' + str(key) + ', value = ' + str(value))
 
             if ms and ms > 0:
-                threading.Timer(ms, self.delete, [key]).start()
+                d = threading.Timer(ms, self.delete, [key])
+                d.daemon = True
+                d.start()
+
                 if self.debug:
                     print('"' + str(key) + '" will die in ' + str(ms) + ' ms')
 

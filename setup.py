@@ -7,14 +7,14 @@ except ImportError:
 
 config = {
     'name': 'bx',
+    'version': '0.3.0',
     'description': 'Simple in-memory storage for Python',
     'long_description': open('README.md').read(),
     'author': 'Ty-Lucas Kelley',
     'url': 'https://github.com/tylucaskelley/bx-python',
-    'download_url': 'https://github.com/tylucaskelley/bx-python/tarball/v0.2.1',
+    'download_url': 'https://github.com/tylucaskelley/bx-python/tarball/v0.3.0',
     'author_email': 'tylucaskelley@gmail.com',
     'license': 'MIT',
-    'version': '0.2.1',
     'install_requires': [
         'nose',
         'jsonschema'
