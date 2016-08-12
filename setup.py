@@ -16,8 +16,10 @@ config = {
     'author_email': 'tylucaskelley@gmail.com',
     'license': 'MIT',
     'install_requires': [
-        'nose',
         'jsonschema'
+    ],
+    'tests_require': [
+        'nose',
     ],
     'packages': [
         'bx'
